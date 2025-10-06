@@ -15,12 +15,29 @@ public class InteractablePerson : MonoBehaviour, IInteractable
     [SerializeField] private GameObject _dialogueBox;
     [SerializeField] private TextMeshProUGUI _dialogueText;
     [SerializeField] private TextMeshProUGUI _nameText;
-    [SerializeField] public List<string> _dialogue = new List<string>();
-    [SerializeField] private bool _executeOnStart = false;
+    [SerializeField] public List<string> _dialogueDutch = new List<string>();
+    [SerializeField] public List<string> _dialogueFrench = new List<string>();
+    [SerializeField] public List<string> _dialogueEnglish = new List<string>();
+    private List<string> _dialogue
+    {
+        get
+        {
+            switch (GameSettings.Instance.CurrentLanguage)
+            {
+                case Language.English: return _dialogueEnglish;
+                case Language.Dutch: return _dialogueDutch;
+                case Language.French: return _dialogueFrench;
+                default: return _dialogueEnglish;
+            }
+        }
+    }
+
+    [SerializeField]
+    private bool _executeOnStart = false;
     public void Start()
     {
         if (_executeOnStart)
-        OnInteract();
+            OnInteract();
     }
     public virtual void OnInteract()
     {
@@ -46,7 +63,7 @@ public class InteractablePerson : MonoBehaviour, IInteractable
         }
 
         EndDialogue();
-        
+
         yield return null;
     }
 
