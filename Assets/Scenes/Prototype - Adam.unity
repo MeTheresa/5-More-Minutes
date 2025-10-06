@@ -119,6 +119,88 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &18500298
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1157376672726465951, guid: a53929668dfb35741b917367aed9aeb4, type: 3}
+      propertyPath: TouchAction
+      value: 
+      objectReference: {fileID: -1654692200621890270, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    - target: {fileID: 5913427419834885894, guid: a53929668dfb35741b917367aed9aeb4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.39084
+      objectReference: {fileID: 0}
+    - target: {fileID: 5913427419834885894, guid: a53929668dfb35741b917367aed9aeb4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5913427419834885894, guid: a53929668dfb35741b917367aed9aeb4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 28.84473
+      objectReference: {fileID: 0}
+    - target: {fileID: 5913427419834885894, guid: a53929668dfb35741b917367aed9aeb4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5913427419834885894, guid: a53929668dfb35741b917367aed9aeb4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5913427419834885894, guid: a53929668dfb35741b917367aed9aeb4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5913427419834885894, guid: a53929668dfb35741b917367aed9aeb4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5913427419834885894, guid: a53929668dfb35741b917367aed9aeb4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5913427419834885894, guid: a53929668dfb35741b917367aed9aeb4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5913427419834885894, guid: a53929668dfb35741b917367aed9aeb4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8189773847250482090, guid: a53929668dfb35741b917367aed9aeb4, type: 3}
+      propertyPath: m_Name
+      value: GameManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8189773847250482090, guid: a53929668dfb35741b917367aed9aeb4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 18500300}
+  m_SourcePrefab: {fileID: 100100000, guid: a53929668dfb35741b917367aed9aeb4, type: 3}
+--- !u!1 &18500299 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8189773847250482090, guid: a53929668dfb35741b917367aed9aeb4, type: 3}
+  m_PrefabInstance: {fileID: 18500298}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &18500300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18500299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89f8b66c3d3d3aa41b1227fce0cad016, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TouchController
+  _panSpeed: 10
 --- !u!1 &52510859
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,7 +646,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1105862747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -577,7 +659,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89f8b66c3d3d3aa41b1227fce0cad016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TouchController
-  _touchAction: {fileID: -1654692200621890270, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   _panSpeed: 5
 --- !u!65 &1105862748
 BoxCollider:
@@ -671,6 +752,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1327715048 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3159089106026709715, guid: c0e39220015834441bb10dc654aa2773, type: 3}
+  m_PrefabInstance: {fileID: 245934897453087706}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1327715051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327715048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a7fbd63d2665d48a8b8d463b3b5050, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractableObject
+  _sceneName: PaintingRoom
 --- !u!1 &1991184502
 GameObject:
   m_ObjectHideFlags: 0
@@ -837,7 +936,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3159089106026709715, guid: c0e39220015834441bb10dc654aa2773, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1327715051}
   m_SourcePrefab: {fileID: 100100000, guid: c0e39220015834441bb10dc654aa2773, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -848,3 +950,4 @@ SceneRoots:
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 245934897453087706}
+  - {fileID: 18500298}

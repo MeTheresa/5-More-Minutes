@@ -41,6 +41,8 @@ public class InteractablePerson : MonoBehaviour, IInteractable
     {
         if (_executeOnStart)
             OnInteract();
+        else
+            _dialogueRunning = false;
     }
     public virtual void OnInteract()
     {

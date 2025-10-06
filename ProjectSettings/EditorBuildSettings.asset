@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Minigames/FindObjectsInPaintings.unity
     guid: 4afc5a2204303f04fb8570945cc2e719
+  - enabled: 1
+    path: Assets/Scenes/Rooms/PaintingRoom.unity
+    guid: a007fe4856b8ce044833f40183041f6a
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 74cb8d33a832e574d8d429154b959082, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
