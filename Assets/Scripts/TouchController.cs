@@ -8,6 +8,8 @@ public class TouchController : MonoBehaviour
     [Header("Touch Action Reference")]
     [SerializeField]
     private InputActionReference _touchAction;
+    [SerializeField]
+    private float _panSpeed = 10f;
     private float _touchDepth = 10f;
 
     private Vector3 _touchLocation;
@@ -44,11 +46,18 @@ public class TouchController : MonoBehaviour
         return new Ray(Camera.main.transform.position, (TouchLocation - Camera.main.transform.position).normalized);
     }
 
+
+
     public void GetInteractable() //Raycast to get the first interactable gameObject
     {
-        if (Physics.Raycast(TouchRay(), out RaycastHit hit, Mathf.Infinity))
-            { 
-            Debug.Log("Hit: " + hit.collider.name); 
+        if (Physics.Raycast(TouchRay(), out RaycastHit hit, Mathf.Infinity, LayerMask.GetMask("Interactable")) && _touchAction.action.triggered)
+        {
+            Debug.Log("Hit: " + hit.collider.name);
+            if (hit.collider.gameObject.CompareTag("Panner"))
+            {
+                Camera.main.transform.position += new Vector3(hit.collider.gameObject.transform.localPosition.x, 0, 0) * _panSpeed  * Time.deltaTime;
             }
+        }
+        
     }
 }
