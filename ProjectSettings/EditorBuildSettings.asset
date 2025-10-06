@@ -8,7 +8,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Prototype.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/InteractablePersonTest.unity
+    guid: c7b7a815ef83c12499367afff22f6a0c
+  - enabled: 1
+    path: Assets/Scenes/Shaders&Assers.unity
+    guid: fbbde45e0aae59f4496e6eb5ba3d3e9d
+  - enabled: 1
+    path: Assets/Scenes/Test.unity
+    guid: b35a7880e2822b44e943682aeebb5aab
+  - enabled: 1
+    path: Assets/Scenes/Minigames/FindObjectsInPaintings.unity
+    guid: 4afc5a2204303f04fb8570945cc2e719
   m_configObjects:
-    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 9227e98e4b6e046c5b175924d7b5d070, type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 74cb8d33a832e574d8d429154b959082, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
