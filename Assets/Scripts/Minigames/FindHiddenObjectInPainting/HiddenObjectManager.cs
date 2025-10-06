@@ -26,6 +26,7 @@ public class HiddenObjectManager : MonoBehaviour
         if(newCount < 1)
         {
             _objectsLeft.text = ("Objects left: " + newCount + ", well done!");
+            //verander scene
         }
     }
 
