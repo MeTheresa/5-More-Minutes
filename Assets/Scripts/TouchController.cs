@@ -8,7 +8,7 @@ public class TouchController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [Header("Touch Action Reference")]
     [SerializeField]
-    private float _panSpeed = 10f;
+    public float _panSpeed = 10f;
     private float _touchDepth = 10f;
 
     private Vector3 _touchLocation;

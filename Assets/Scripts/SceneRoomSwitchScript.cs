@@ -9,6 +9,7 @@ public class SceneRoomSwitchScript : MonoBehaviour
     //Scene 3 = Test
     //Scene 4 = FindObjectsInPainting Minigame
     //Scene 5 = PaintingRoom
+    //Scene 6 = Prototype - Adam
     public static void LoadSceneOrMinigame(int sceneIndex)
     {
         SceneManager.LoadScene(sceneIndex);

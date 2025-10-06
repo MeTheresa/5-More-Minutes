@@ -128,6 +128,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1157376672726465951, guid: a53929668dfb35741b917367aed9aeb4, type: 3}
+      propertyPath: TouchClick
+      value: 
+      objectReference: {fileID: 3001919216989983466, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    - target: {fileID: 1157376672726465951, guid: a53929668dfb35741b917367aed9aeb4, type: 3}
+      propertyPath: TouchPoint
+      value: 
+      objectReference: {fileID: -1654692200621890270, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    - target: {fileID: 1157376672726465951, guid: a53929668dfb35741b917367aed9aeb4, type: 3}
       propertyPath: TouchAction
       value: 
       objectReference: {fileID: -1654692200621890270, guid: 052faaac586de48259a63d0c4782560b, type: 3}
@@ -173,6 +181,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8189773847250482090, guid: a53929668dfb35741b917367aed9aeb4, type: 3}
       propertyPath: m_Name
+      value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8189773847250482090, guid: a53929668dfb35741b917367aed9aeb4, type: 3}
+      propertyPath: m_TagString
       value: GameManager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -770,6 +782,71 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractableObject
   _sceneName: PaintingRoom
+--- !u!1001 &1791808016
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1451603453531452482, guid: e44e0a477ec15fe46809ddc57ceef98d, type: 3}
+      propertyPath: m_Name
+      value: PanSpeedManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5782998886481551990, guid: e44e0a477ec15fe46809ddc57ceef98d, type: 3}
+      propertyPath: _speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5782998886481551990, guid: e44e0a477ec15fe46809ddc57ceef98d, type: 3}
+      propertyPath: _gameManager
+      value: 
+      objectReference: {fileID: 18500299}
+    - target: {fileID: 9190477837651698373, guid: e44e0a477ec15fe46809ddc57ceef98d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.70106
+      objectReference: {fileID: 0}
+    - target: {fileID: 9190477837651698373, guid: e44e0a477ec15fe46809ddc57ceef98d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.91343
+      objectReference: {fileID: 0}
+    - target: {fileID: 9190477837651698373, guid: e44e0a477ec15fe46809ddc57ceef98d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.92458
+      objectReference: {fileID: 0}
+    - target: {fileID: 9190477837651698373, guid: e44e0a477ec15fe46809ddc57ceef98d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9190477837651698373, guid: e44e0a477ec15fe46809ddc57ceef98d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9190477837651698373, guid: e44e0a477ec15fe46809ddc57ceef98d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9190477837651698373, guid: e44e0a477ec15fe46809ddc57ceef98d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9190477837651698373, guid: e44e0a477ec15fe46809ddc57ceef98d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9190477837651698373, guid: e44e0a477ec15fe46809ddc57ceef98d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9190477837651698373, guid: e44e0a477ec15fe46809ddc57ceef98d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e44e0a477ec15fe46809ddc57ceef98d, type: 3}
 --- !u!1 &1991184502
 GameObject:
   m_ObjectHideFlags: 0
@@ -951,3 +1028,4 @@ SceneRoots:
   - {fileID: 832575519}
   - {fileID: 245934897453087706}
   - {fileID: 18500298}
+  - {fileID: 1791808016}

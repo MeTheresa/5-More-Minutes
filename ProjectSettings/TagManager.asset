@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Door
   - Panner
+  - GameManager
   layers:
   - Default
   - TransparentFX
