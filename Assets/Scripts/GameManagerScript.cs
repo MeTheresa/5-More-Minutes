@@ -19,13 +19,13 @@ public class GameManagerScript : MonoBehaviour
     }
     private void Update()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 4) //find objects in painting
-        {
-            ShaderMaterial.SetFloat("ColorThreshhold", 0);
-        }
-        else
-        {
-            ShaderMaterial.SetFloat("ColorThreshhold", 2);
-        }
+        //if (SceneManager.GetActiveScene().buildIndex == 4) //find objects in painting
+        //{
+        //    ShaderMaterial.SetFloat("ColorThreshhold", 0);
+        //}
+        //else
+        //{
+        //    ShaderMaterial.SetFloat("ColorThreshhold", 2);
+        //}
     }
 }

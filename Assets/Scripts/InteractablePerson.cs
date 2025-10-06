@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class InteractablePerson : MonoBehaviour, IInteractable
@@ -18,6 +19,8 @@ public class InteractablePerson : MonoBehaviour, IInteractable
     [SerializeField] public List<string> _dialogueDutch = new List<string>();
     [SerializeField] public List<string> _dialogueFrench = new List<string>();
     [SerializeField] public List<string> _dialogueEnglish = new List<string>();
+
+    private bool _dialogueRunning = false;
     private List<string> _dialogue
     {
         get
@@ -41,11 +44,13 @@ public class InteractablePerson : MonoBehaviour, IInteractable
     }
     public virtual void OnInteract()
     {
-        StartCoroutine(HandleDialogue());
+        if (!_dialogueRunning)
+            StartCoroutine(HandleDialogue());
     }
 
     private void StartDialogue()
     {
+        _dialogueRunning = true;
         _dialogueVisualReference.texture = _visual;
         _nameText.text = _name;
         _dialogueBox.SetActive(true);
@@ -58,6 +63,8 @@ public class InteractablePerson : MonoBehaviour, IInteractable
         foreach (string dialogue in _dialogue)
         {
             _dialogueText.text = dialogue;
+            yield return new WaitForEndOfFrame();
+            yield return new WaitForSecondsRealtime(0.1f);
             yield return new WaitUntil(ButtonInput);
             yield return new WaitForEndOfFrame();
         }
@@ -69,11 +76,12 @@ public class InteractablePerson : MonoBehaviour, IInteractable
 
     private void EndDialogue()
     {
+        _dialogueRunning = false;
         _dialogueBox.SetActive(false);
     }
 
     private bool ButtonInput()
     {
-        return Input.GetMouseButtonUp(0);
+        return GameSettings.Instance.TouchAction.action.triggered;
     }
 }
