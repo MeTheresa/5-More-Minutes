@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class InteractableObject : IInteractable
+public class InteractableObject : MonoBehaviour, IInteractable
 {
     [SerializeField] private string _sceneName;
     //Scene 0 = Prototype

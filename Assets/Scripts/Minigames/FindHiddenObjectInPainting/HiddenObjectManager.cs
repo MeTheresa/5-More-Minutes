@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -26,7 +27,7 @@ public class HiddenObjectManager : MonoBehaviour
         if(newCount < 1)
         {
             _objectsLeft.text = ("Objects left: " + newCount + ", well done!");
-            //verander scene
+            StartCoroutine(SceneChange());
         }
     }
 
@@ -38,6 +39,12 @@ public class HiddenObjectManager : MonoBehaviour
             _hiddenObjects.Remove(hiddenObject);
             UpdateHiddenObjectCountText(_hiddenObjects.Count);
         }
+    }
 
+    IEnumerator SceneChange()
+    {
+        yield return new WaitForSeconds(1.5f);
+        Debug.Log("change scene");
+        //change scene
     }
 }
