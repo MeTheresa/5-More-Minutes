@@ -45,6 +45,6 @@ public class HiddenObjectManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         Debug.Log("change scene");
-        //change scene
+        SceneRoomSwitchScript.LoadSceneOrMinigame(5);
     }
 }
