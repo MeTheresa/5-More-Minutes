@@ -82,6 +82,6 @@ public class InteractablePerson : MonoBehaviour, IInteractable
 
     private bool ButtonInput()
     {
-        return GameSettings.Instance.TouchAction.action.triggered;
+        return GameSettings.Instance.TouchClick.action.WasReleasedThisFrame();
     }
 }

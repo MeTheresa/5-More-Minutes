@@ -5,12 +5,14 @@ public class GameSettings : MonoBehaviour
 {
     public static GameSettings Instance { get; private set; }
 
-    public InputActionReference TouchAction;
+    public InputActionReference TouchPoint;
+    public InputActionReference TouchClick;
 
     [field:SerializeField] public Language CurrentLanguage { get; private set; } = Language.English;
     void Start()
     {
-        TouchAction.action.Enable();
+        TouchPoint.action.Enable();
+        TouchClick.action.Enable();
     }
     private void Awake()
     {

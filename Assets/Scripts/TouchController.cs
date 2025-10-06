@@ -1,3 +1,4 @@
+using System;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -20,7 +21,18 @@ public class TouchController : MonoBehaviour
     {
         TouchLocationTracker();
         GetInteractable();
+        PanCamera();
+    }
 
+    private void PanCamera()
+    {
+        if (GameSettings.Instance.TouchClick.action.IsPressed())
+        {
+            if (GameSettings.Instance.TouchPoint.action.ReadValue<Vector2>().x < Screen.width / 4)
+                Camera.main.transform.position -= Vector3.right * _panSpeed * Time.deltaTime;
+            if (GameSettings.Instance.TouchPoint.action.ReadValue<Vector2>().x > Screen.width - Screen.width / 4)
+                Camera.main.transform.position += Vector3.right * _panSpeed * Time.deltaTime;
+        }
     }
 
     private Vector3 TouchToWorld(Vector3 TouchCoordinate) //Convert the screen point to world point
@@ -30,9 +42,9 @@ public class TouchController : MonoBehaviour
 
     private void TouchLocationTracker() // Update the touch location when the screen is being touched
     {
-        if (GameSettings.Instance.TouchAction.action.triggered)
+        if (GameSettings.Instance.TouchPoint.action.triggered)
         {
-            TouchLocation = TouchToWorld(GameSettings.Instance.TouchAction.action.ReadValue<Vector2>());
+            TouchLocation = TouchToWorld(GameSettings.Instance.TouchPoint.action.ReadValue<Vector2>());
         }
     }
     private Ray TouchRay() //Get ray from camera to touch location
@@ -44,15 +56,11 @@ public class TouchController : MonoBehaviour
 
     public void GetInteractable() //Raycast to get the first interactable gameObject
     {
-        if (Physics.Raycast(TouchRay(), out RaycastHit hit, Mathf.Infinity, LayerMask.GetMask("Interactable")) && GameSettings.Instance.TouchAction.action.triggered)
+        if (Physics.Raycast(TouchRay(), out RaycastHit hit, Mathf.Infinity, LayerMask.GetMask("Interactable")) && GameSettings.Instance.TouchClick.action.WasReleasedThisFrame())
         {
             if (hit.collider.TryGetComponent<IInteractable>(out IInteractable interactable))
             {
                 interactable.OnInteract();
-            }
-            if (hit.collider.gameObject.CompareTag("Panner"))
-            {
-                Camera.main.transform.position += new Vector3(hit.collider.gameObject.transform.localPosition.x, 0, 0) * _panSpeed  * Time.deltaTime;
             }
         }
         
