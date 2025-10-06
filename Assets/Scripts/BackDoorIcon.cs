@@ -4,7 +4,7 @@ public class BackDoorIcon : MonoBehaviour
 {
     public void BackToHall()
     {
-        SceneRoomSwitchScript.LoadSceneOrMinigame(6);
+        SceneRoomSwitchScript.LoadSceneOrMinigame(0);
         
     }
 }
