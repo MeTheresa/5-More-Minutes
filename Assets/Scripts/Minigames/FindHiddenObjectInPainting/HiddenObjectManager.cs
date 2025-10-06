@@ -10,13 +10,23 @@ public class HiddenObjectManager : MonoBehaviour
 
     void Start()
     {
-        
+        UpdateHiddenObjectCountText(_hiddenObjects.Count);
     }
 
     // Update is called once per frame
     void Update()
     {
-        _objectsLeft.text = ("Objects left: " + _hiddenObjects.Count.ToString());
+        
+    }
+
+    private void UpdateHiddenObjectCountText(int newCount)
+    {
+        _objectsLeft.text = ("Objects left: " + newCount);
+
+        if(newCount < 1)
+        {
+            _objectsLeft.text = ("Objects left: " + newCount + ", well done!");
+        }
     }
 
     public void HiddenObjectClicked(Button hiddenObject)
@@ -25,6 +35,7 @@ public class HiddenObjectManager : MonoBehaviour
         {
             hiddenObject.gameObject.SetActive(false);
             _hiddenObjects.Remove(hiddenObject);
+            UpdateHiddenObjectCountText(_hiddenObjects.Count);
         }
 
     }
