@@ -14,26 +14,11 @@ public class InteractablePerson : MonoBehaviour, IInteractable
     [SerializeField] private Texture2D _visual;
     [SerializeField] private RawImage _dialogueVisualReference;
     [SerializeField] private GameObject _dialogueBox;
-    [SerializeField] private TextMeshProUGUI _dialogueText;
-    [SerializeField] private TextMeshProUGUI _nameText;
-    [SerializeField] public List<string> _dialogueDutch = new List<string>();
-    [SerializeField] public List<string> _dialogueFrench = new List<string>();
-    [SerializeField] public List<string> _dialogueEnglish = new List<string>();
+    [SerializeField] private TextAnimationControlScript _dialogueText;
+    [SerializeField] private TextAnimationControlScript _nameText;
+    [SerializeField] private List<TranslatedText> _dialogue = new List<TranslatedText>();
 
     private bool _dialogueRunning = false;
-    private List<string> _dialogue
-    {
-        get
-        {
-            switch (GameSettings.Instance.CurrentLanguage)
-            {
-                case Language.English: return _dialogueEnglish;
-                case Language.Dutch: return _dialogueDutch;
-                case Language.French: return _dialogueFrench;
-                default: return _dialogueEnglish;
-            }
-        }
-    }
 
     [SerializeField]
     private bool _executeOnStart = false;
@@ -54,17 +39,17 @@ public class InteractablePerson : MonoBehaviour, IInteractable
     {
         _dialogueRunning = true;
         _dialogueVisualReference.texture = _visual;
-        _nameText.text = _name;
         _dialogueBox.SetActive(true);
+        _nameText.DisplayText(_name);
     }
 
     private IEnumerator HandleDialogue()
     {
         StartDialogue();
 
-        foreach (string dialogue in _dialogue)
+        foreach (TranslatedText dialogue in _dialogue)
         {
-            _dialogueText.text = dialogue;
+            _dialogueText.DisplayText(dialogue.Text);
             yield return new WaitForEndOfFrame();
             yield return new WaitForSecondsRealtime(0.1f);
             yield return new WaitUntil(ButtonInput);
