@@ -9,6 +9,8 @@ public class InteractableObject : MonoBehaviour, IInteractable
     //Scene 2 = Shaders&Assets
     //Scene 3 = Test
     //Scene 4 = FindObjectsInPainting Minigame
+    //Scene 5 = CurtainCall Minigame - WIP
+
     public void OnInteract()
     {
         SceneManager.LoadScene(_sceneName);
