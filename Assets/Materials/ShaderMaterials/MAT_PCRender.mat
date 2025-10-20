@@ -90,7 +90,7 @@ Material:
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _ColorThreshold: 0.83
+    - _ColorThreshold: 1.14
     - _Cull: 2
     - _Cutoff: 0.5
     - _DepthThreshold: 0.1

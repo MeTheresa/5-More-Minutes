@@ -4,17 +4,32 @@ using UnityEngine;
 
 public class CurtainCallManagerScript : MonoBehaviour
 {
+    private static float _wordPointStrength = 15f;
+
+    private static float _wordLifetime = 1f;
 
     private static float _tragedyScore = 5f;
 
     private static float _comedyScore = 5f;
 
+    public static float WordPointStrength
+    { 
+     get { return _wordPointStrength; }
+     set { _wordPointStrength = value; }
+    }
+    
+    public static float WordLifetime
+    {
+        get { return _wordLifetime; }
+        set { _wordLifetime = value; }
+    }
     public static float TragedyScore 
     {
         get { return _tragedyScore; } 
 
         set {
-            if (value > 90 || value < 0) return; 
+            if ( value < 0) return;
+            if (value >= 90) _tragedyScore = 90;
             else _tragedyScore = value;
             } 
     }
@@ -22,21 +37,33 @@ public class CurtainCallManagerScript : MonoBehaviour
     { 
         get { return _comedyScore; } 
         set 
-        { 
-            if (value > 90 || value < 0) return;
+        {
+            if (value < 0) return;
+            if (value >= 90) _comedyScore = 90;
             else _comedyScore = value;
         } 
     }
+    [Header("Word object adjustment")]
+    [SerializeField] private float _wordSpawnDelay = 1f;
 
-    [Header("Gauge objects")]
+    [Header("Gauge assignment objects")]
     [SerializeField] private RectTransform LeftGauge;
     [SerializeField] private RectTransform RightGauge;
 
-    [Header("List of objects for positioning")]
-    [SerializeField] private List<GameObject> _tragedies;
-    [SerializeField] private List<GameObject> _comedies;
+    [Header("Score drain adjustment")]
+    [SerializeField] private float _drainSpeed = 1f; //
+    [SerializeField] private float _drainStrength = 1f;
+    [SerializeField] private float _distancedStrengthIncrease = 3f;
 
-    private List<GameObject> _currentActive = new();
+    [Header("List of objects for positioning")]
+    [SerializeField] private List<GameObject> _words;
+    //[SerializeField] private List<GameObject> _comedies; // list of specified per type for applying custom text
+    //[SerializeField] private List<GameObject> _tragedies;
+
+    private int _currentActive = 0;
+    private float _elapsedTime = 0;
+    private float _elapsedSpawnTime = 0;
+
 
     private string[] _tragedyEng;
     private string[] _comedyEng;
@@ -48,18 +75,52 @@ public class CurtainCallManagerScript : MonoBehaviour
         _tragedyEng = new string[] { "Sadness", "Vitriol", "Grief", "Longing"};
         _comedyEng = new string[] { "Joy", "Laugh", "Celebration", "Happiness" };
         _anchorPoint = this.gameObject.transform.position;
+        foreach (GameObject word in _words)
+        {
+            word.SetActive(false);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        ChooseRandomWord();
         UpdateGauges();
+        Debug.Log(_currentActive);
     }
 
+    private void ChooseRandomWord()
+    {
+        
+        if(_currentActive < 2 && _elapsedSpawnTime >= _wordSpawnDelay)
+      {
+            int random =  Mathf.CeilToInt(Random.Range(-1f, 7f));
+        if(random == -1)
+        {
+            ChooseRandomWord();
+        }
+            if (_words[random].activeSelf == false)
+            {
+                ActivateWord(random);
+                _elapsedSpawnTime = 0;
+            }
+        }
+        _elapsedSpawnTime += Time.deltaTime;
+    }
+
+    private void ActivateWord(int listPosition)
+    {
+        _words[listPosition].SetActive(true);
+    }
     private void UpdateGauges()
     {
         UpdateRightGauge(RightGauge);
         UpdateLeftGauge(LeftGauge);
+        if (_elapsedTime >= _drainSpeed) GaugeFalloff();
+        _elapsedTime += Time.deltaTime;
+        StopWhenAhead();
+
     }
 
     private void UpdateLeftGauge(RectTransform rightGauge)
@@ -74,36 +135,27 @@ public class CurtainCallManagerScript : MonoBehaviour
         leftGauge.transform.localPosition = new Vector3(0, ActualRightGauge, 0);
     }
 
-    public Vector2 GetRandomNonOverlappingPosition()
+    public void UpdateCurrentActive(int activeDelta)
     {
-        Vector2 Position = GenerateRandomPosition();
-        if (CheckOverlap(Position))
-        {
-            GetRandomNonOverlappingPosition();
-            throw new System.Exception("Recursion skipped");
-        }
-        else return Position;
+        _currentActive += activeDelta;
     }
 
-    public Vector3 GenerateRandomPosition()
+    private void GaugeFalloff()
     {
-        Vector2 random = Random.insideUnitCircle;
-        return new Vector3(random.x, random.y, -90f);
+        if (TragedyScore > ComedyScore && Mathf.Abs(TragedyScore - ComedyScore) > 10) TragedyScore -= _distancedStrengthIncrease;
+        else TragedyScore -= _drainStrength;
+        if (ComedyScore > TragedyScore && Mathf.Abs(TragedyScore - ComedyScore) > 10) ComedyScore -= _distancedStrengthIncrease;
+        else ComedyScore -= _drainStrength;
+        _elapsedTime = 0;
     }
-    public bool CheckOverlap(Vector3 Position)
-    {
-        if( _currentActive.Count == 0 )    return false;
-        
-        foreach (var @object in _currentActive)
-        {
-            if (@object.transform.position == Position)
-            {
-                return true;
-            }
-            else
-                return false;
-        }
 
-        throw new System.Exception("Conditional skipped");
+    private void StopWhenAhead()
+    {
+        if(Mathf.Abs(_tragedyScore - _comedyScore) > 30)
+        {
+            if (_tragedyScore > _comedyScore) _tragedyScore = _comedyScore;
+            else _comedyScore = _tragedyScore;
+
+        }
     }
 }
