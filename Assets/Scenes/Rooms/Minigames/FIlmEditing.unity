@@ -146,7 +146,7 @@ Transform:
   m_GameObject: {fileID: 30678935}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.07, y: 1.98, z: -0.57}
+  m_LocalPosition: {x: 0.7, y: 1.98, z: -0.57}
   m_LocalScale: {x: 1, y: 1.2195119, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -650,7 +650,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c573e6eaad0ec874a9d7c5a33a6afcb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EditFrameElement
-  sequenceNumber: 0
 --- !u!64 &166356190
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -851,7 +850,7 @@ Transform:
   m_GameObject: {fileID: 248923783}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.42696, y: 4.19, z: 6.94}
+  m_LocalPosition: {x: -4.36, y: 4.19, z: 6.94}
   m_LocalScale: {x: 1, y: 1, z: 0.82}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1272,7 +1271,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c573e6eaad0ec874a9d7c5a33a6afcb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EditFrameElement
-  sequenceNumber: 0
 --- !u!114 &521265244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1372,7 +1370,7 @@ Transform:
   m_GameObject: {fileID: 521265242}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -2.24, y: 2.16, z: 2}
+  m_LocalPosition: {x: 2.9, y: 2.16, z: 4.5}
   m_LocalScale: {x: 0.28, y: 0.15878315, z: 0.2051142}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -1763,7 +1761,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c573e6eaad0ec874a9d7c5a33a6afcb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EditFrameElement
-  sequenceNumber: 0
 --- !u!114 &869667980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1863,7 +1860,7 @@ Transform:
   m_GameObject: {fileID: 869667978}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.73, y: 2.16, z: 2}
+  m_LocalPosition: {x: 4.58, y: 4.5, z: 4.5}
   m_LocalScale: {x: 0.28, y: 0.15878315, z: 0.2051142}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -1903,7 +1900,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c573e6eaad0ec874a9d7c5a33a6afcb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EditFrameElement
-  sequenceNumber: 0
 --- !u!114 &973046801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2003,7 +1999,7 @@ Transform:
   m_GameObject: {fileID: 973046799}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 6.63, y: 2.16, z: 2}
+  m_LocalPosition: {x: 9.19, y: 2.16, z: 4.5}
   m_LocalScale: {x: 0.28, y: 0.15878315, z: 0.2051142}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -2164,7 +2160,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c573e6eaad0ec874a9d7c5a33a6afcb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EditFrameElement
-  sequenceNumber: 0
 --- !u!114 &1225210877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2264,7 +2259,7 @@ Transform:
   m_GameObject: {fileID: 1225210875}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -5.19, y: 2.16, z: 2}
+  m_LocalPosition: {x: 6.06, y: 2.16, z: 4.5}
   m_LocalScale: {x: 0.28, y: 0.15878315, z: 0.2051142}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -3240,9 +3235,9 @@ Transform:
   m_GameObject: {fileID: 1652507903}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 3.64, y: 2.16, z: 2}
+  m_LocalPosition: {x: 7.84, y: 4.47, z: 4.5}
   m_LocalScale: {x: 0.28, y: 0.15878315, z: 0.2051142}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1653777514}
   m_Father: {fileID: 0}
@@ -3259,7 +3254,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c573e6eaad0ec874a9d7c5a33a6afcb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EditFrameElement
-  sequenceNumber: 0
 --- !u!1 &1653777513
 GameObject:
   m_ObjectHideFlags: 0
@@ -3288,7 +3282,7 @@ Transform:
   m_LocalRotation: {x: 0.7070896, y: -0.0049364264, z: -0.0049364264, w: 0.7070896}
   m_LocalPosition: {x: 0.09051124, y: 0.16000164, z: -0.05127939}
   m_LocalScale: {x: 1.2363442, y: 1.6875825, z: 2.1796749}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1652507909}
   m_LocalEulerAnglesHint: {x: 90.8, y: 90, z: 90}
