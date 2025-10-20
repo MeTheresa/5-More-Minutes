@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class CurtainCallManagerScript : MonoBehaviour
 {
-    CurtainCallManagerScript _curtainCallManager;
-    private static float _wordPointStrength = 5f;
+    private static float _wordPointStrength = 15f;
 
     private static float _wordLifetime = 1f;
 
@@ -29,20 +28,23 @@ public class CurtainCallManagerScript : MonoBehaviour
         get { return _tragedyScore; } 
 
         set {
-            if (value > 90 || value < 0) return; 
-            _tragedyScore = value;
-            Debug.Log(_tragedyScore);
+            if ( value < 0) return;
+            if (value >= 90) _tragedyScore = 90;
+            else _tragedyScore = value;
             } 
     }
     public static float ComedyScore 
     { 
         get { return _comedyScore; } 
         set 
-        { 
-            if (value > 90 || value < 0) return;
-            _comedyScore = value;
+        {
+            if (value < 0) return;
+            if (value >= 90) _comedyScore = 90;
+            else _comedyScore = value;
         } 
     }
+    [Header("Word object adjustment")]
+    [SerializeField] private float _wordSpawnDelay = 1f;
 
     [Header("Gauge assignment objects")]
     [SerializeField] private RectTransform LeftGauge;
@@ -60,6 +62,7 @@ public class CurtainCallManagerScript : MonoBehaviour
 
     private int _currentActive = 0;
     private float _elapsedTime = 0;
+    private float _elapsedSpawnTime = 0;
 
 
     private string[] _tragedyEng;
@@ -69,7 +72,6 @@ public class CurtainCallManagerScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _curtainCallManager = this;
         _tragedyEng = new string[] { "Sadness", "Vitriol", "Grief", "Longing"};
         _comedyEng = new string[] { "Joy", "Laugh", "Celebration", "Happiness" };
         _anchorPoint = this.gameObject.transform.position;
@@ -90,7 +92,8 @@ public class CurtainCallManagerScript : MonoBehaviour
 
     private void ChooseRandomWord()
     {
-        if(_currentActive < 2)
+        
+        if(_currentActive < 2 && _elapsedSpawnTime >= _wordSpawnDelay)
       {
             int random =  Mathf.CeilToInt(Random.Range(-1f, 7f));
         if(random == -1)
@@ -98,8 +101,12 @@ public class CurtainCallManagerScript : MonoBehaviour
             ChooseRandomWord();
         }
             if (_words[random].activeSelf == false)
+            {
                 ActivateWord(random);
+                _elapsedSpawnTime = 0;
+            }
         }
+        _elapsedSpawnTime += Time.deltaTime;
     }
 
     private void ActivateWord(int listPosition)
@@ -112,6 +119,7 @@ public class CurtainCallManagerScript : MonoBehaviour
         UpdateLeftGauge(LeftGauge);
         if (_elapsedTime >= _drainSpeed) GaugeFalloff();
         _elapsedTime += Time.deltaTime;
+        StopWhenAhead();
 
     }
 
@@ -139,5 +147,15 @@ public class CurtainCallManagerScript : MonoBehaviour
         if (ComedyScore > TragedyScore && Mathf.Abs(TragedyScore - ComedyScore) > 10) ComedyScore -= _distancedStrengthIncrease;
         else ComedyScore -= _drainStrength;
         _elapsedTime = 0;
+    }
+
+    private void StopWhenAhead()
+    {
+        if(Mathf.Abs(_tragedyScore - _comedyScore) > 30)
+        {
+            if (_tragedyScore > _comedyScore) _tragedyScore = _comedyScore;
+            else _comedyScore = _tragedyScore;
+
+        }
     }
 }

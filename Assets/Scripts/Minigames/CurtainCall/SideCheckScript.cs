@@ -7,7 +7,7 @@ public class SideCheckScript : MonoBehaviour, IInteractable
     [SerializeField] private CurtainCallManagerScript _curtainCallManagerScript;
 
 
-    private float _elapsedTime;
+    private float _elapsedTime = 0f;
 
     public void OnEnable()
     {
