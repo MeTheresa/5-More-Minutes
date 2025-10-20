@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Test.unity
     guid: b35a7880e2822b44e943682aeebb5aab
   - enabled: 1
-    path: Assets/Scenes/Minigames/FindObjectsInPaintings.unity
+    path: Assets/Scenes/Rooms/Minigames/FindObjectsInPaintings.unity
     guid: 4afc5a2204303f04fb8570945cc2e719
   - enabled: 1
     path: Assets/Scenes/Rooms/PaintingRoom.unity
