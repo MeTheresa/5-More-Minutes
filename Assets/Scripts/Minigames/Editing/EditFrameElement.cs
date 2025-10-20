@@ -4,6 +4,7 @@ public class EditFrameElement : MonoBehaviour, IInteractable
 {
     public void OnInteract()
     {
-        FilmEditData.SelectedObject = this.gameObject;
+        if(transform.parent == null)
+            FilmEditData.SelectedObject = this.gameObject;
     }
 }
